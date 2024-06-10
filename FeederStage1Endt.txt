@@ -1,3 +1,11 @@
-Notify SNO that the work is starting by emailing noc@snonetops.com quoting the work order reference number.
-Any issues or discrepancies with this work order, please also contact the NOC at SNO (657) 217-2970) to address this issue and ensure that it is resolved to optimise delivery of the work order.
-<START OF WORK ORDER>
+Before installing the fiber at each mid-point chamber fit duct couplers to enable the fiber to be blown.
+After installing the fiber, remove most of the duct that the fiber is in, within the chamber and ensure 30ft of fiber is coiled within the chamber before fitting gas seals to each section of duct the fiber passes through.
+Take geo-tagged photograph of the labelling of the fiber and gas seals. Shape file of the path attached to the Service Desk (Jira) ticket.
+<END OF WORK ORDER>
+Upon completion of a feeder network stage 1 work order (fiber blowing) Arcadis will be required to perform QA/QC of the fiber install, which will include:
+Visual inspection of the chambers the fiber is required to be present at and confirm no visible damage to the fiber.
+Confirm fiber is correctly labelled in accordance with the work order requirements Confirm gas seals have been fitted to 16/12mm metro duct around fiber.
+Take geo-tagged photograph of the labelling of the fiber and gas seals. Photograph fiber within the chambers
+Notify SNO that the work is complete by calling (657) 217-2970 quoting the work order number.
+Upload the photographs to the Service Desk (Jira) Work Order ticket created and referenced by SNO.
+Once reviewed by SNO, SNO will close the ticket.

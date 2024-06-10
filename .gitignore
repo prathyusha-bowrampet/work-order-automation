@@ -48,11 +48,8 @@ Thumbs.db
 *.wmv
 
 *.pdf
-
-
-
-
-
+# User settings do NOT include in git
+config.ini
 
 bin
 obj

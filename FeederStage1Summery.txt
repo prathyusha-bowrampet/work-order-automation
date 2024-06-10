@@ -1,1 +1,1 @@
-{a_end}- Lat/Long = {a_end_lat}, {a_end_long} (Chamber {a_end} to Chamber {b_end}, duct ID {feeder_seg} length {feeder_seg_len}ft), label as FC-{feeder_collection_num} FG-{feeder_group_num} FS-{feeder_seg_num} CH-{a_end_num} CH-{{b_end_num}.
+Feeder Stage 1 Work Order – {fg} ({fc})
