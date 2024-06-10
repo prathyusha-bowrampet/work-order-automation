@@ -1,5 +1,5 @@
 # **Overview**
-The CitySharepoint class helps you interact with a SharePoint site. You can use it to create folders, upload files, and retrieve data for specific cities.
+The CitySharepoint helps you interact with a SharePoint site. You can use it to create folders, upload files, and retrieve data for specific cities.
 
 See [Readme](https://dev.azure.com/SNOSoftwareEngineering/Mergin%20maps%20and%20QGIS%20scripts/_git/work-order-automation?path=/reademe.md&_a=preview) in repo
 
