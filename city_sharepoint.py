@@ -24,13 +24,16 @@ class CitySharepoint:
     def __init__(self):
         config = configparser.ConfigParser()
         config.read('config.ini')
-        self.sharepoint_config = config['SharePoint']
+        self.old_sharepoint_config = config['SharePoint']
+        self.sharepoint_config = config['sno.cloud SharePoint']
 
         # Get sharepoint credentials
         # Initialize the client credentials
+        user_credentials_old = UserCredential(self.old_sharepoint_config['user'], self.old_sharepoint_config['pass'])
         user_credentials = UserCredential(self.sharepoint_config['user'], self.sharepoint_config['pass'])
 
         # create client context object
+        self.old_ctx = ClientContext(self.old_sharepoint_config['url']).with_credentials(user_credentials_old)
         self.ctx = ClientContext(self.sharepoint_config['url']).with_credentials(user_credentials)
         self.city_feeders_list = None
         self.city_feeder_segs_list = None
@@ -70,9 +73,9 @@ class CitySharepoint:
 
     def get_city_feeders(self, city, reset=False):
         if not self.city_feeders_list or reset:
-            file_name = "{base}feeder/feeder_{city}.csv".format(base=self.sharepoint_config['qgis_base_dir'],
+            file_name = "{base}feeder/feeder_{city}.csv".format(base=self.old_sharepoint_config['qgis_base_dir'],
                                                                 city=city)
-            file_response = File.open_binary(self.ctx, file_name)
+            file_response = File.open_binary(self.old_ctx, file_name)
             txt_file = file_response.content.decode('utf-8-sig', 'surrogatepass') or '\0'
             self.city_feeders_list = txt_file.splitlines()
         feeders = csv.DictReader(self.city_feeders_list)
@@ -80,9 +83,9 @@ class CitySharepoint:
 
     def get_city_feeder_seg(self, city, reset=False):
         if not self.city_feeder_segs_list or reset:
-            file_name = "{base}feeder_seg/feeder_seg_{city}.csv".format(base=self.sharepoint_config['qgis_base_dir'],
+            file_name = "{base}feeder_seg/feeder_seg_{city}.csv".format(base=self.old_sharepoint_config['qgis_base_dir'],
                                                                         city=city)
-            file_response = File.open_binary(self.ctx, file_name)
+            file_response = File.open_binary(self.old_ctx, file_name)
             txt_file = file_response.content.decode('utf-8-sig', 'surrogatepass') or '\0'
             self.city_feeder_segs_list = txt_file.splitlines()
         feeder_segs = csv.DictReader(self.city_feeder_segs_list)
@@ -90,9 +93,9 @@ class CitySharepoint:
 
     def get_city_chambers(self, city, reset=False):
         if not self.city_chambers_list or reset:
-            file_name = "{base}chamber/chamber_{city}.csv".format(base=self.sharepoint_config['qgis_base_dir'],
+            file_name = "{base}chamber/chamber_{city}.csv".format(base=self.old_sharepoint_config['qgis_base_dir'],
                                                                         city=city)
-            file_response = File.open_binary(self.ctx, file_name)
+            file_response = File.open_binary(self.old_ctx, file_name)
             txt_file = file_response.content.decode('utf-8-sig', 'surrogatepass') or '\0'
             self.city_chambers_list = txt_file.splitlines()
         chambers = csv.DictReader(self.city_chambers_list)
